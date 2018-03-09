@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author Wolves
+ * @author Iuri
  */
 public abstract class Pessoa {
     private String nome,rg,cpf;
