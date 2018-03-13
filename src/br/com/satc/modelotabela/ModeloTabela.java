@@ -7,6 +7,7 @@ package br.com.satc.modelotabela;
 
 import br.com.satc.objetos.Disciplina;
 import br.com.satc.singleton.SDisciplina;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -28,11 +29,11 @@ public class ModeloTabela extends AbstractTableModel {
         this.linhas = linhas;
     }
 
-    public EstabelecimentoTable() {
-        linhas = new ArrayList<ItemAgenda>();
+    public ModeloTabela() {
+        linhas = new ArrayList<Disciplina>();
     }
 
-    public EstabelecimentoTable(List<ItemAgenda> linhas) {
+    public ModeloTabela(List<Disciplina> linhas) {
         this.linhas = linhas;
     }
 
@@ -50,17 +51,15 @@ public class ModeloTabela extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Estabelecimento agenda = (Estabelecimento) linhas.get(rowIndex);
+        Disciplina agenda = (Disciplina) linhas.get(rowIndex);
         int cont = 0;
         switch (columnIndex) {
             case 0:
                 return agenda.getNome();
             case 1:
-                return agenda.getTelefone();
+                return agenda.getDepartamento();
             case 2:
-                return agenda.getEmail();
-            case 3:
-                return agenda.getHomePage();
+                return agenda.getStatus();
             default:
                 throw new IndexOutOfBoundsException("");
         }
@@ -78,8 +77,6 @@ public class ModeloTabela extends AbstractTableModel {
             case 1:
                 return String.class;
             case 2:
-                return String.class;
-            case 3:
                 return String.class;
             default:
                 throw new IndexOutOfBoundsException("");
