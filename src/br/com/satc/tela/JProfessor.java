@@ -8,6 +8,8 @@ package br.com.satc.tela;
 import br.com.satc.objetos.Disciplina;
 import br.com.satc.singleton.SDisciplina;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -23,7 +25,8 @@ public class JProfessor extends javax.swing.JFrame {
     public JProfessor() {
         initComponents();
         
-        
+        JComboBox combobox = new JComboBox(new
+        DefaultComboBoxModel(SDisciplina.getInstance().getDisciplinas().toArray()));
         
     }
 
@@ -249,7 +252,7 @@ public class JProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
