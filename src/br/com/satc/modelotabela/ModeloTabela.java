@@ -6,6 +6,8 @@
 package br.com.satc.modelotabela;
 
 import br.com.satc.objetos.Disciplina;
+import br.com.satc.singleton.SDisciplina;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -15,6 +17,7 @@ import javax.swing.table.AbstractTableModel;
  * @author SATC
  */
 public class ModeloTabela extends AbstractTableModel {
+    /* Tem que renomear certinho aqui Iur */
 
     private List<Disciplina> linhas;
 
