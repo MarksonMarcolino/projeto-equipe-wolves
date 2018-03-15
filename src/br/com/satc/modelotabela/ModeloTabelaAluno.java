@@ -5,9 +5,8 @@
  */
 package br.com.satc.modelotabela;
 
-import br.com.satc.objetos.Disciplina;
-import br.com.satc.singleton.SDisciplina;
-
+import br.com.satc.objetos.Aluno;
+import br.com.satc.objetos.Professor;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -16,30 +15,26 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author SATC
  */
-public class ModeloTabela extends AbstractTableModel {
+public class ModeloTabelaAluno extends AbstractTableModel {
+      private List<Aluno> linhas;
 
-    /* Tem que renomear certinho aqui Iuri */
-
-
-    private List<Disciplina> linhas;
-
-    public List<Disciplina> getLinhas() {
+    public List<Aluno> getLinhas() {
         return linhas;
     }
 
-    public void setLinhas(List<Disciplina> linhas) {
+    public void setLinhas(List<Aluno> linhas) {
         this.linhas = linhas;
     }
 
-    public ModeloTabela() {
-        linhas = new ArrayList<Disciplina>();
+    public ModeloTabelaAluno() {
+        linhas = new ArrayList<Aluno>();
     }
 
-    public ModeloTabela(List<Disciplina> linhas) {
+    public ModeloTabelaAluno(List<Aluno> linhas) {
         this.linhas = linhas;
     }
 
-    String[] colunas = new String[]{"Nome", "Departamento", "Status"};
+    String[] colunas = new String[]{"Nome", "Rg", "Cpf","Carga Horaria","Data de nascimento","Disciplinas","Salario","Valor hora"};
 
     @Override
     public int getRowCount() {
@@ -53,20 +48,26 @@ public class ModeloTabela extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-
-        Disciplina disciplinas = (Disciplina) linhas.get(rowIndex);
-
+        Aluno alunos = (Aluno) linhas.get(rowIndex);
         int cont = 0;
         switch (columnIndex) {
             case 0:
-                return disciplinas.getNome();
+                return alunos.getNome();
             case 1:
-                return disciplinas.getDepartamento();
+                return alunos.getRg();
             case 2:
-                return disciplinas.getStatus();
-
-             
-            default:
+                return alunos.getMatricula();
+            case 3:
+                return alunos.getIdade();
+            case 4:
+                return alunos.getDisciplinas();
+            case 5: 
+                return alunos.getDataNascimento();
+            case 6:
+                return alunos.getDataMatricula();
+            case 7:
+                return alunos.getCpf();         
+               default:
                 throw new IndexOutOfBoundsException("");
         }
 
@@ -89,5 +90,6 @@ public class ModeloTabela extends AbstractTableModel {
         }
 
     }
-
+   
+    
 }

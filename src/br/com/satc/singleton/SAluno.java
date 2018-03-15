@@ -6,7 +6,6 @@
 package br.com.satc.singleton;
 
 import br.com.satc.objetos.Aluno;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class SAluno {
     
     private SAluno() {
     }
-    
+
     private List<Aluno> alunos = new ArrayList();
 
     public List<Aluno> getAlunos() {

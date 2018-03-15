@@ -6,8 +6,7 @@
 package br.com.satc.modelotabela;
 
 import br.com.satc.objetos.Disciplina;
-import br.com.satc.singleton.SDisciplina;
-
+import br.com.satc.objetos.Professor;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -16,30 +15,26 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author SATC
  */
-public class ModeloTabela extends AbstractTableModel {
+public class ModeloTabelaProfessores extends AbstractTableModel{
+      private List<Professor> linhas;
 
-    /* Tem que renomear certinho aqui Iuri */
-
-
-    private List<Disciplina> linhas;
-
-    public List<Disciplina> getLinhas() {
+    public List<Professor> getLinhas() {
         return linhas;
     }
 
-    public void setLinhas(List<Disciplina> linhas) {
+    public void setLinhas(List<Professor> linhas) {
         this.linhas = linhas;
     }
 
-    public ModeloTabela() {
-        linhas = new ArrayList<Disciplina>();
+    public ModeloTabelaProfessores() {
+        linhas = new ArrayList<Professor>();
     }
 
-    public ModeloTabela(List<Disciplina> linhas) {
+    public ModeloTabelaProfessores(List<Professor> linhas) {
         this.linhas = linhas;
     }
 
-    String[] colunas = new String[]{"Nome", "Departamento", "Status"};
+    String[] colunas = new String[]{"Nome", "Rg", "Cpf","Carga Horaria","Data de nascimento","Disciplinas","Salario","Valor hora"};
 
     @Override
     public int getRowCount() {
@@ -53,19 +48,25 @@ public class ModeloTabela extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-
-        Disciplina disciplinas = (Disciplina) linhas.get(rowIndex);
-
+        Professor professores = (Professor) linhas.get(rowIndex);
         int cont = 0;
         switch (columnIndex) {
             case 0:
-                return disciplinas.getNome();
+                return professores.getNome();
             case 1:
-                return disciplinas.getDepartamento();
+                return professores.getRg();
             case 2:
-                return disciplinas.getStatus();
-
-             
+                return professores.getCpf();
+            case 3:
+                return professores.getCargaHoraria();
+            case 4:
+                return professores.getDataNascimento();
+            case 5:
+                return professores.getDisciplinas();
+            case 6:
+                return professores.getSalario();
+            case 7:
+                return professores.getValorHora();
             default:
                 throw new IndexOutOfBoundsException("");
         }
@@ -90,4 +91,5 @@ public class ModeloTabela extends AbstractTableModel {
 
     }
 
+   
 }
