@@ -12,11 +12,7 @@ public class Professor extends Pessoa {
 
     List<Disciplina> disciplinas = new ArrayList();
 
-    public Professor(String nome, String rg, String cpf, Date dataNascimento) {
-        super(nome, rg, cpf, dataNascimento);
-    }
-
-    public Professor(int cargaHoraria, float valorHora, String nome, String rg, String cpf, Date dataNascimento) {
+      public Professor(int cargaHoraria, float valorHora, String nome, String rg, String cpf, Date dataNascimento) {
         super(nome, rg, cpf, dataNascimento);
         this.cargaHoraria = cargaHoraria;
         this.valorHora = valorHora;
