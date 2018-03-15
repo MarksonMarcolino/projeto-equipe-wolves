@@ -13,6 +13,10 @@ public class Disciplina {
     private String  nome,departamento;
     private char status;
 
+    public Disciplina() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getNome() {
         return nome;
     }

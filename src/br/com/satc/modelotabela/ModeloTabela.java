@@ -17,7 +17,9 @@ import javax.swing.table.AbstractTableModel;
  * @author SATC
  */
 public class ModeloTabela extends AbstractTableModel {
+
     /* Tem que renomear certinho aqui Iuri */
+
 
     private List<Disciplina> linhas;
 
@@ -51,7 +53,9 @@ public class ModeloTabela extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
+
         Disciplina disciplinas = (Disciplina) linhas.get(rowIndex);
+
         int cont = 0;
         switch (columnIndex) {
             case 0:
@@ -60,6 +64,8 @@ public class ModeloTabela extends AbstractTableModel {
                 return disciplinas.getDepartamento();
             case 2:
                 return disciplinas.getStatus();
+
+             
             default:
                 throw new IndexOutOfBoundsException("");
         }

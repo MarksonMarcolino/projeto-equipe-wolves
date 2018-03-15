@@ -11,13 +11,16 @@ import java.util.List;
 
 /**
  *
- * @author iuril
- */
+ * @author vinic
+ */ 
+ 
 public class SProfessor {
     
     private SProfessor() {
     }
+
      private List <Professor> professores = new ArrayList();
+
 
     public List<Professor> getProfessores() {
         return professores;
@@ -26,8 +29,7 @@ public class SProfessor {
     public void setProfessores(List<Professor> professores) {
         this.professores = professores;
     }
-     
-     
+
     public static SProfessor getInstance() {
         return SProfessorHolder.INSTANCE;
     }

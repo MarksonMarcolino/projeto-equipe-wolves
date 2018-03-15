@@ -11,12 +11,13 @@ import java.util.List;
 
 /**
  *
- * @author iuril
+ * @author vinic
  */
 public class SAluno {
     
     private SAluno() {
     }
+
     private List<Aluno> alunos = new ArrayList();
 
     public List<Aluno> getAlunos() {
