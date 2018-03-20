@@ -17,7 +17,9 @@ import javax.swing.table.AbstractTableModel;
  * @author SATC
  */
 public class ModeloTabela extends AbstractTableModel {
-    /* Tem que renomear certinho aqui Iur */
+
+    /* Tem que renomear certinho aqui Iuri */
+
 
     private List<Disciplina> linhas;
 
@@ -51,15 +53,19 @@ public class ModeloTabela extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Disciplina agenda = (Disciplina) linhas.get(rowIndex);
+
+        Disciplina disciplinas = (Disciplina) linhas.get(rowIndex);
+
         int cont = 0;
         switch (columnIndex) {
             case 0:
-                return agenda.getNome();
+                return disciplinas.getNome();
             case 1:
-                return agenda.getDepartamento();
+                return disciplinas.getDepartamento();
             case 2:
-                return agenda.getStatus();
+                return disciplinas.getStatus();
+
+             
             default:
                 throw new IndexOutOfBoundsException("");
         }

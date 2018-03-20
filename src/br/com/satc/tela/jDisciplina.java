@@ -254,9 +254,11 @@ public class jDisciplina extends javax.swing.JFrame {
         status = jTextField3.getText().charAt(0);
         Disciplina d = new Disciplina(nome, departamento, status);
         SDisciplina.getInstance().getDisciplinas().add(d);
+
         jTextField1.setText("");
         jTextField2.setText("");
         jTextField3.setText("");
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
