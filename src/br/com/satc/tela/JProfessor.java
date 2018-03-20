@@ -34,15 +34,11 @@ public class JProfessor extends javax.swing.JFrame {
         initComponents();
 
         // JComboBox combobox = new JComboBox(new DefaultComboBoxModel(SDisciplina.getInstance().getDisciplinas().toArray()));
-        int cont = 0;
-        DefaultComboBoxModel model;
-        String[] nomec = null;
+            jComboBox1.removeAllItems();
+
         for (Disciplina disciplina : SDisciplina.getInstance().getDisciplinas()) {
-            nomec[cont]+=(disciplina.getNome());
-            cont++;
+            jComboBox1.addItem(disciplina.getNome());
         }
-        model = new DefaultComboBoxModel(nomec);
-        jComboBox1.setModel(model);
     }
 
     /**
