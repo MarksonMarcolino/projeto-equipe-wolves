@@ -8,7 +8,18 @@ package br.com.satc.tela;
 import br.com.satc.objetos.Disciplina;
 
 import br.com.satc.singleton.SDisciplina;
+
+import br.com.satc.singleton.SProfessor;
+import java.lang.reflect.Array;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
@@ -25,11 +36,16 @@ public class JProfessor extends javax.swing.JFrame {
     public JProfessor() {
         initComponents();
 
+
         
         JComboBox combobox = new JComboBox(new
         DefaultComboBoxModel(SDisciplina.getInstance().getDisciplinas().toArray()));
         
 
+
+        for (Disciplina disciplina : SDisciplina.getInstance().getDisciplinas()) {
+            jComboBox1.addItem(disciplina.getNome());
+        }
     }
 
     /**
@@ -310,18 +326,34 @@ public class JProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Date dataNsc= null;
+        int cont;
+        Date dataNsc = null;
         int cargahoraria = Integer.parseInt(jTextField1.getText());
         float valorhora = Integer.parseInt(jTextField2.getText());
-        String nome = jTextField4.getText(), rg = jTextField5.getText(), cpf = jTextField6.getText();
+        String nome = jTextField4.getText();
+        String rg = jTextField5.getText();
+        String cpf = jTextField6.getText();
+        Disciplina d = null;
+       
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        
         try {
             dataNsc = format.parse(jTextField7.getText());
         } catch (ParseException ex) {
             Logger.getLogger(JProfessor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Date dataNascimento;
-        Professor p = new Professor(cargahoraria, valorhora, nome, rg, cpf, dataNsc);
+        
+        cont = 0;
+        
+        for (Disciplina disciplinas : SDisciplina.getInstance().getDisciplinas()) {
+            if (jComboBox1.getSelectedItem() == SDisciplina.getInstance().getDisciplinas().get(cont).getNome()) {
+             d = SDisciplina.getInstance().getDisciplinas().get(cont);
+            }
+            cont++;
+        }
+        
+        Professor p = new Professor(cargahoraria, valorhora, nome, rg, cpf, dataNsc,SDisciplina.getInstance().getDisciplinas());
+        
         SProfessor.getInstance().getProfessores().add(p);
 
     }//GEN-LAST:event_jButton1ActionPerformed

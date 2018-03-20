@@ -76,7 +76,7 @@ public abstract class Pessoa {
     public int calcularIdade(){
         Calendar dataNascimento = Calendar.getInstance();
         Date dataNasc = null;
-        dataNascimento.setTime(dataNasc);
+        dataNascimento.setTime(getDataNascimento());
         Calendar hoje = Calendar.getInstance();
         
         int idade = hoje.get(Calendar.YEAR) - dataNascimento.get(Calendar.YEAR);
