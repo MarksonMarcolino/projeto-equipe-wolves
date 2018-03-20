@@ -317,14 +317,15 @@ public class JProfessor extends javax.swing.JFrame {
         
         for (Disciplina disciplinas : SDisciplina.getInstance().getDisciplinas()) {
             if (jComboBox1.getSelectedItem() == SDisciplina.getInstance().getDisciplinas().get(cont).getNome()) {
-                cont++;
+             d = SDisciplina.getInstance().getDisciplinas().get(cont);
             }
+            cont++;
         }
         
-        Professor p = new Professor(cargahoraria, valorhora, nome, rg, cpf, dataNsc);
+        Professor p = new Professor(cargahoraria, valorhora, nome, rg, cpf, dataNsc,SDisciplina.getInstance().getDisciplinas());
         
         SProfessor.getInstance().getProfessores().add(p);
-        
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
